@@ -1,0 +1,23 @@
+------------------------------------------------------------------------------
+------------- C:\Users\Denton\Desktop\Commodore Fall 2016\GEOS\ --------------
+---------- __My GeoProgrammer Projects\_RawtoGeosv2\rtf\geoRaw.d64 -----------
+------------------------------------------------------------------------------
+0 "GeosRaw         " 1a 2A
+120  "DESK TOP"         SYS
+8    "RawHdr"           DOC
+86   "RawAll"           DOC
+5    "Raw.lnk"          DOC
+36   "RawHdr.rel"       DOC
+48   "RawAll.rel"       DOC
+8    "Raw"              APP
+24   "Raw.dbg"          DOC
+14   "RawMain"          DOC
+29   "RawCode"          DOC
+46   "RawDialog"        DOC
+22   "RawData"          DOC
+13   "GetDiskName"      DOC
+58   "geosSym"          DOC
+15   "geosMac"          DOC
+1    "RAW(1).RAW"       DAT
+127 BLOCKS FREE.
+

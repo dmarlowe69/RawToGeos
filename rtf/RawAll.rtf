@@ -1,0 +1,1009 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+{\colortbl ;\red0\green0\blue0;\red255\green255\blue255;}
+\viewkind4\uc1\pard\margl288\margr000\margt720\margb720\paperw11909\paperh16834\cf1\highlight2\fs18\par
+\par
+------------page 1--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500 ;**************************************\par
+;\par
+; RawtoGeos\par
+;\par
+;**************************************\par
+\par
+.if Pass1 ;Only need to include these files\par
+        ;during assembler's first pass.\par
+.include geosSym ;get GEOS definitions\par
+.include geosMac ;get GEOS macro definitions\par
+.endif\par
+\par
+.psect ;program code section starts here\par
+      ;(GeoLinker will give this an address of $0400)\par
+\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 2--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500 ;**************************************\par
+; Application Initialization\par
+;**************************************\par
+ProgStart:\par
+\par
+ jsr UseSystemFont\par
+ jsr MouseUp\par
+ jsr InitScreen\par
+ jsr InitIcons\par
+ ;jsr DoMain\par
+ jsr XX04CF\par
+ jmp EnterDeskTop\par
+\par
+;**************************************\par
+; initialize Display\par
+;**************************************\par
+InitScreen:\par
+ LoadB dispBufferOn,# (ST_WR_FORE \'f6 ST_WR_BACK)\par
+ ;allow writes to foreground and background\par
+\par
+ LoadW r0,#ClearScreen ;point to graphics string to clear screen\par
+ jsr GraphicsString\par
+ rts\par
+;**************************************\par
+; ClearScreen Graphics Code Table\par
+;**************************************\par
+ClearScreen:         ;graphics string table to clear screen \par
+ .byte NEWPATTERN,2 ;set new pattern value\par
+ .byte MOVEPENTO   ;move pen to: \par
+ .word 0           ;top left corner of screen\par
+ .byte 0\par
+ .byte RECTANGLETO  ;draw filled rectangle to bottom right corner\par
+ .word 319\par
+ .byte 199\par
+ .byte NULL         ;end of graphics table\par
+;**************************************\par
+;\par
+;**************************************\par
+InitIcons:\par
+ LoadW r0,#DummyIconTable ;point to icon definition table\par
+ jsr DoIcons                ;have GEOS draw the icons on the screen\par
+ rts\par
+;**************************************\par
+; Dummy Icon Table\par
+;**************************************\par
+DummyIconTable:\par
+ .byte 1      ;number of icons\par
+ .word 0     ;x position to place mouse at when done\par
+ .byte 0      ;y position to place mouse at when done\par
+ .word 0     ;pointer to compacted bitmap for icon\par
+ .byte 0      ;x position in bytes\par
+ .byte 0      ;y position in scanlines\par
+ .byte 1       ;width of icon in bytes\par
+ .byte 1       ;height of icon in scanlines \par
+ .word $0000 ;pointer to handler routine\par
+;**************************************\par
+; Main Code\par
+;**************************************\par
+;DoMain:\par
+; nop\par
+; jsr XX04CF ; call main loop\par
+; rts\par
+;**************************************\par
+; Do About DialogBox\par
+;**************************************\par
+XX0445:\par
+ LoadW r0,#XX0481\par
+ jsr DoDlgBox\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 3--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500  rts\par
+;**************************************\par
+; Dialog Box (exit on click)\par
+;\par
+; Level 0 test application\par
+; Designed by Denton Marlowe\par
+; Version 1.0, Copyright 1988\par
+; Shadow Systems\par
+;\par
+;**************************************\par
+XX0481:\par
+ .byte $81 ; DEF_DB_POS \'f6 Pattern \par
+ .byte $0E    ; DBSYSOPV\par
+ .byte $0B    ; DBTXTSTR\par
+ .byte $10    ; xoffset\par
+ .byte $10    ; yoffset\par
+ .word DText2 ; Pointer to String\par
+ .byte $0B    ; DBTXTSTR\par
+ .byte $10    ; xoffset\par
+ .byte $20    ; yoffset\par
+ .word DText3 ; Pointer to String\par
+ .byte $0B    ; DBTXTSTR\par
+ .byte $10    ; xoffset\par
+ .byte $30    ; yoffset\par
+ .word DText4 ; Pointer to String\par
+ .byte $0B    ; DBTXTSTR\par
+ .byte $10    ; xoffset\par
+ .byte $40    ; yoffset\par
+ .word DText5 ; Pointer to String\par
+ .byte $00    ; NULL end of dialog box\par
+;**************************************\par
+;\par
+;**************************************\par
+DText2:\par
+ .byte $18\par
+ .byte "Level 0 test application"\par
+ .byte $1B\par
+ .byte $00\par
+DText3:\par
+ .byte $18\par
+ .byte "Designed by Denton Marlowe"\par
+ .byte $1B\par
+ .byte $00\par
+DText4:\par
+ .byte $18\par
+ .byte "VERSION 1.0, Copyright 1988"\par
+ .byte $1B\par
+ .byte $00\par
+DText5:\par
+ .byte $18\par
+ .byte "Shadow Systems"\par
+ .byte $1B\par
+ .byte $00\par
+;**************************************\par
+; Main Loop\par
+;**************************************\par
+XX04CF:\par
+ nop\par
+XX04D0:\par
+ LoadW r0,#XX04EB\par
+ jsr DoDlgBox\par
+ lda r0L\par
+ cmp #2\par
+ beq XX04E7\par
+ jsr XX050F\par
+ clv\par
+ bvc XX04D0\par
+XX04E7:\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 4--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500  jsr XX0445 ;<-------- about box and then exit\par
+ rts\par
+;**************************************\par
+; Dialog Box\par
+;\par
+; Run Test APPLICATION\par
+;\par
+; \'c4CANCEL\'dc       \'c4OK\'dc\par
+;\par
+;**************************************\par
+XX04EB:\par
+ .byte $81 ; DEF_DB_POS \'f6 Pattern\par
+ .byte $0B ; DXTXTSTR \par
+ .byte $0E ; xoffset\par
+ .byte $14 ; yoffset\par
+ .word DText1 ; Pointer to String\par
+ .byte $02 ; \'c4CANCEL\'dc\par
+ .byte $02 ; xoffset\par
+ .byte $47 ; yoffset\par
+ .byte $01 ; \'c4OK\'dc\par
+ .byte $0F ; xoffset\par
+ .byte $46 ; yoffset\par
+ .byte $00 ; NULL end of dialog box\par
+;**************************************\par
+; DialogBox Text\par
+;**************************************\par
+DText1:\par
+ .byte $18\par
+ .byte "Run Test APPLICATION"\par
+ .byte $1B\par
+ .byte $00\par
+;**************************************\par
+;\par
+;**************************************\par
+XX050F:\par
+ nop\par
+ jsr XX0514\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0514:\par
+ LoadB r7L,#0\par
+ LoadW r0,#0\par
+ LoadW r5,#XX05F7\par
+ LoadW r10,#0\par
+\par
+ jsr XX0805\par
+ cpx #0\par
+ beq XX0538 ;<-----------\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0538:\par
+ LoadW r6,#XX05F7\par
+ jsr FindFile\par
+ cpx #0\par
+ beq XX0548\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0548:\par
+ lda r1H\par
+ sta a1H\par
+ lda r1L\par
+ sta a1L\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 5--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500  ;LoadW a1,r1\par
+ lda r5H\par
+ sta a5H\par
+ lda r5L\par
+ sta a5L\par
+ ;LoadW a5,r5\par
+;**************************************\par
+;\par
+;**************************************\par
+ LoadW r0,#XX0637\par
+ jsr DoDlgBox\par
+;**************************************\par
+;\par
+;**************************************\par
+ lda r0L\par
+ cmp #1\par
+ beq XX056A\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX056A:\par
+ jsr GetDirHead\par
+ lda #0\par
+ sta r2H\par
+ lda #240\par
+ sta r2L\par
+ lda #6\par
+ sta r6H\par
+ lda #23\par
+ sta r6L\par
+ jsr BlkAlloc\par
+ cpx #0\par
+ bne XX05E8\par
+ lda r2L\par
+ cmp #0\par
+ beq XX05E8\par
+ lda r3H\par
+ sta r1H\par
+ lda r3L\par
+ sta r1L\par
+;**************************************\par
+;\par
+;**************************************\par
+ lda #7\par
+ sta r4H\par
+ lda #5\par
+ sta r4L\par
+ jsr PutBlock\par
+;**************************************\par
+;\par
+;**************************************\par
+ cpx #0\par
+ bne XX05E8\par
+ ldy #19\par
+ lda r1L\par
+ sta (a5L),y\par
+ iny\par
+ lda r1H\par
+ sta (a5L),y\par
+ iny\par
+ lda #0\par
+ sta (a5L),y\par
+ iny \par
+ lda #3\par
+ sta (a5L),y\par
+ iny \par
+ ldx #4\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 6--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500 XX05B9:\par
+ lda $84FF,y\par
+ sta (a5L),y\par
+ iny\par
+ dex\par
+ bne XX05B9\par
+ lda a1H\par
+ sta r1H\par
+ lda a1L\par
+ sta r1L\par
+ lda #128\par
+ sta r4H\par
+ lda #0\par
+ sta r4L\par
+ jsr PutBlock\par
+ cpx #0\par
+ bne XX05E8\par
+ jsr PutDirHead\par
+;**************************************\par
+;\par
+;**************************************\par
+ LoadW r0,#XX0679\par
+ jsr DoDlgBox\par
+ rts\par
+XX05E8:\par
+ jsr XX0A91\par
+ LoadW r0,#XX06A0\par
+ jsr DoDlgBox\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX05F7:\par
+.block $20\par
+XX0617:\par
+.block $20\par
+;**************************************\par
+; Last Chance to Abort DialogBox\par
+;**************************************\par
+XX0637:\par
+ .byte $81 ; DEF_DB_POS \'f6 Pattern\par
+ .byte $0B ; DBTXTSTR\par
+ .byte $10 ; xpos_offset\par
+ .byte $10 ; ypos_offset\par
+ .word XX0649 ; pointer to text string\par
+ .byte $0B ; DBTXTSTR\par
+ .byte $10 ; xpos_offset\par
+ .byte $20 ; ypos_offset\par
+ .word XX0661 ; pointer to text string\par
+ .byte $01 ; \'c4OK\'dc\par
+ .byte $01 ; xpos_in_bytes\par
+ .byte $48 ; ypos_in_lines\par
+ .byte $02 ; \'c4CANCEL\'dc\par
+ .byte $11 ; xpos_in_bytes\par
+ .byte $48 ; ypos_in_lines\par
+ .byte $00 ; end of dialog\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0649:\par
+ .byte $18\par
+ .byte "last chance to abort!"\par
+ .byte $1B\par
+ .byte $00\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0661:\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 7--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500  .byte $18\par
+ .byte "press cancel to quit!"\par
+ .byte $1B\par
+ .byte $00\par
+;**************************************\par
+; File Conversion Successful DialogBox\par
+;**************************************\par
+XX0679:\par
+ .byte $81 ; DEF_DB_POS \'f6 Pattern\par
+ .byte $0B ; DBTXTSTR\par
+ .byte $10 ; xpos_offset\par
+ .byte $10 ; ypos_offset\par
+ .word XX0683 ; pointer to text string\par
+ .byte $01 ; \'c4OK\'dc\par
+ .byte $01 ; xpos_in_bytes\par
+ .byte $48 ; ypos_in_bytes\par
+ .byte $00 ; end of dialog\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0683:\par
+ .byte $18\par
+ .byte "File conversion successful"\par
+ .byte $1B\par
+ .byte $00\par
+;**************************************\par
+; Disk Error - Validate the Disk DialogBox\par
+;**************************************\par
+XX06A0:\par
+ .byte $81 ; DEF_DB_POS \'f6 Pattern\par
+ .byte $0B ; DBTXTSTR\par
+ .byte $10 ; xpos_offset\par
+ .byte $10 ; ypos_offset\par
+ .word XX06AA ; pointer to text string\par
+ .byte $01 ; \'c4OK\'dc\par
+ .byte $01 ; xpos_in_bytes\par
+ .byte $48 ; upos_in_bytes\par
+ .byte $00 ; end of dialog\par
+;**************************************\par
+;\par
+;**************************************\par
+XX06AA:\par
+ .byte $18\par
+ .byte "Disk error - validate the disk!"\par
+ .byte $1B\par
+ .byte $00 \par
+;**************************************\par
+; Input Permanent Name Dialog Box\par
+;**************************************\par
+XX06CC:\par
+ .byte $81 ; DEF_DB_POS \'f6 Pattern\par
+ .byte $0B ; DBTXTSTR \par
+ .byte $10 ; xpos_offset\par
+ .byte $20 ; ypos_offset\par
+ .word XX06D8 ; pointer to text string\par
+ .byte $0D ; DBGETSTRING\par
+ .byte $10 ; xpos_offset\par
+ .byte $30 ; ypos_offset\par
+ .byte $0C ; RegNumber\par
+ .byte $10 ; MaxChars\par
+ .byte $00 ; end of dialog\par
+;**************************************\par
+;\par
+;**************************************\par
+XX06D8:\par
+ .byte $18\par
+ .byte "permenant name:"\par
+ .byte $1B\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 8--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500  .byte $00\par
+;**************************************\par
+; Input author name DialogBox\par
+;**************************************\par
+XX06EA:\par
+ .byte $81 ; DEF_DB_POS \'f6 Pattern\par
+ .byte $0B ; DBTXTSTR\par
+ .byte $10 ; xpos_offset\par
+ .byte $20 ; ypos_offset\par
+ .word XX06F6 ; pointer to text string\par
+ .byte $0D ; DBGETSTRING\par
+ .byte $10 ; xpos_offset\par
+ .byte $30 ; ypos_offset\par
+ .byte $0C ; RegNumber\par
+ .byte $10 ; MaxChars\par
+ .byte $00 ; end of dialog\par
+;**************************************\par
+;\par
+;**************************************\par
+XX06F6:\par
+ .byte $18\par
+ .byte "author name:"\par
+ .byte $1B\par
+ .byte $00\par
+;**************************************\par
+; 256 byte block\par
+;**************************************\par
+XX0705:\par
+ .byte $00,$00,$03,$15,$BF,$FF,$C0,$00,$9C,$00,$00,$AA,$00,$00,$98,$00\par
+ .byte $40,$F0,$00,$00,$B8,$00,$00,$B0,$39,$0C,$E0,$38,$1C,$E0,$72,$0E\par
+ .byte $A0,$B2,$0A,$E0,$A1,$03,$E0,$10,$C0,$E1,$04,$00,$E0,$80,$A0,$80\par
+ .byte $63,$F0,$E0,$A0,$F0,$C0,$5C,$7C,$E0,$1F,$98,$F0,$01,$00,$F8,$00\par
+ .byte $00,$FF,$FF,$FF,$82,$03,$00,$00,$00,$00,$00,$00,$00,$52,$41,$57\par
+ .byte $20,$20,$20,$20,$20,$20,$20,$20,$20,$56,$31,$2E,$30,$00,$20,$20\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+ .byte $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0805:\par
+ lda r0H\par
+ sta XX088B+1\par
+ lda r0L\par
+ sta XX088B\par
+ ;LoadW XX088B,r0\par
+ lda r7L\par
+ sta XX088D+1\par
+ lda r7H\par
+ sta XX088D\par
+ ;LoadW XX088D,r7\par
+ lda r5H\par
+ sta XX088F+1\par
+ lda r5L\par
+ sta XX088F\par
+ ;LoadW XX088F,r5\par
+ lda r10H\par
+ sta XX0891+1\par
+ lda r10L\par
+ sta XX0891\par
+ ;LoadW XX0891,r10\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 9--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500 ;**************************************\par
+;\par
+;**************************************\par
+XX082D:\par
+ LoadW r0,#XX0893\par
+ jsr DoDlgBox\par
+;**************************************\par
+;\par
+;**************************************\par
+ lda r0L\par
+ cmp #2\par
+ beq XX0883\par
+ cmp #5\par
+ beq XX0888\par
+ cmp #6\par
+ beq XX084B\par
+ cmp #11\par
+ beq XX0855\par
+ brk\par
+XX084B:\par
+ jsr XX0A0D ;<--------\par
+ cpx #0\par
+ bne XX088A\par
+ clv\par
+ bvc XX0862\par
+XX0855:\par
+ jsr XX0A70 ;<--------\par
+ cpx #0\par
+ bne XX088A\par
+ jsr XX0AEF ;<--------Dummy rts\par
+ clv\par
+ bvc XX0862\par
+XX0862:\par
+ lda XX088E\par
+ sta r7L\par
+ lda XX088D\par
+ sta r7H\par
+ lda XX0890\par
+ sta r5H\par
+ lda XX088F\par
+ sta r5L\par
+ lda XX0892\par
+ sta r10H\par
+ lda XX0891\par
+ sta r10L\par
+ clv\par
+ bvc XX082D\par
+XX0883:\par
+ ldx #255\par
+ clv\par
+ bvc XX088A\par
+XX0888:\par
+ ldx #0\par
+XX088A:\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX088B:\par
+ .byte $00\par
+XX088C:\par
+ .byte $00\par
+XX088D:\par
+ .byte $00\par
+XX088E:\par
+ .byte $00\par
+XX088F:\par
+ .byte $00\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 10--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500 XX0890:\par
+ .byte $00\par
+XX0891:\par
+ .byte $00\par
+XX0892:\par
+ .byte $00\par
+;**************************************\par
+; Custom GetFile Open,Disk and Custom Drive icons\par
+;**************************************\par
+XX0893:\par
+ .byte $81 ; DEF_DB_POS \'f6 Pattern\par
+ .byte $13 ;DB_USR_ROUT\par
+ .word XX08B3 ; pointer to user routine\par
+ .byte $10 ; Future expansion\par
+ .byte $04 ; xpos\par
+ .byte $04 ; ypos\par
+ .byte $0B ; DBTXTSTR\par
+ .byte $82 ; xpos_offset\par
+ .byte $0A ; ypos_offet\par
+ .word XX08EA\par
+ .byte $0B ; DBTXTSTR\par
+ .byte $82 ; xpos_offset\par
+ .byte $14 ; ypos_offet\par
+ .word XX08F5 ; Text Buffer to Hold Current File Name\par
+ .byte $05 ; \'c4OPEN\'dc\par
+ .byte $11 ; xpos_in_bytes\par
+ .byte $19 ; ypos_in_lines\par
+ .byte $02 ; \'c4CANCEL\'dc\par
+ .byte $11 ; xpos_in_bytes\par
+ .byte $4C ; ypos_in_lines\par
+ .byte $12 ; DBUSRICON\par
+ .byte $11 ; x_offset\par
+ .byte $3B ; y_offset\par
+ .word XX09AB\par
+XX08AF:\par
+ .byte $06 ; \'c4DISK\'dc\par
+ .byte $11 ; xpos_in_bytes\par
+ .byte $2A ; ypos_in_bytes\par
+ .byte $00 ; end of dialogbox\par
+;**************************************\par
+;\par
+;**************************************\par
+XX08B3:\par
+ lda #0\par
+ sta mouseXPos+1\par
+ lda #224\par
+ sta mouseXPos\par
+ lda #65\par
+ sta mouseYPos\par
+ jsr XX08C6\par
+ jsr XX0915\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX08C6:\par
+ ldx curDrive\par
+ ldy #0\par
+XX08CB:\par
+ cpx #9\par
+ beq XX08D5\par
+ lda DrACurDkNm,y\par
+ clv\par
+ bvc XX08D8\par
+XX08D5:\par
+ lda DrBCurDkNm,y\par
+XX08D8:\par
+ cmp #160\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 11--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500  beq XX08E4\par
+ sta XX08F5,y\par
+ iny\par
+ cpy #17\par
+ bne XX08CB\par
+XX08E4:\par
+ lda #0\par
+ sta XX08F5,y\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX08EA:\par
+ .byte $18\par
+ .byte "On disk:"\par
+ .byte $1B\par
+ .byte $00\par
+;**************************************\par
+;\par
+;**************************************\par
+XX08F5:\par
+ .block $20\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0915:\par
+ lda numDrives\par
+ cmp #2\par
+ beq XX0933\par
+ lda #0 ; if only one drive disable \'c4DRIVE\'dc\par
+ sta XX09AC\par
+ lda #0\par
+ sta XX09AB\par
+ lda #1\par
+ sta XX09AF\par
+ lda #1\par
+ sta XX09B0\par
+ clv \par
+ bvc XX0955\par
+XX0933:\par
+ lda #\'dcXX09BB ; if two drives enable \'c4DRIVE\'dc\par
+ sta XX09AC\par
+ lda #\'c4XX09BB\par
+ sta XX09AB\par
+ lda #6\par
+ sta XX09AF\par
+ lda #16\par
+ sta XX09B0\par
+ lda curDrive\par
+ sec\par
+ sbc #8\par
+ tax\par
+ lda driveType,x\par
+ and #128\par
+ bne XX0960\par
+XX0955:\par
+ jsr XX0966\par
+ bcs XX0960\par
+ lda #6\par
+ sta XX08AF\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0960:\par
+ lda #0\par
+ sta XX08AF\par
+ rts\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 12--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500 ;**************************************\par
+;\par
+;**************************************\par
+XX0966:\par
+ lda XX088C\par
+ cmp #0\par
+ bne XX0972\par
+ lda XX088B\par
+ cmp #0\par
+XX0972:\par
+ beq XX09A7\par
+ lda XX088C\par
+ cmp #255\par
+ bne XX0980 \par
+ lda XX088B\par
+ cmp #255\par
+XX0980:\par
+ beq XX099F\par
+ lda #8\par
+ sta r0H\par
+ lda #245\par
+ sta r0L\par
+ lda XX088C\par
+ sta r1H\par
+ lda XX088B\par
+ sta r1L\par
+ ldx #2\par
+ ldy #4\par
+ jsr CmpString\par
+ beq XX09A9\par
+ bne XX09A7\par
+XX099F:\par
+ lda curDrive\par
+ cmp XX088D\par
+ beq XX09A9\par
+XX09A7:\par
+ clc\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX09A9:\par
+ sec\par
+ rts\par
+;**************************************\par
+; USER ICON Data Table\par
+;**************************************\par
+XX09AB:\par
+ .byte #\'c4XX09BB ; ptr to icon data low\par
+XX09AC:\par
+ .byte #\'dcXX09BB ; ptr to icon data high\par
+XX09AD:\par
+ .byte $00 ; x position\par
+XX09AE:\par
+ .byte $00 ; y position\par
+XX09AF: \par
+ .byte $06 ; width in bytes \par
+XX09B0:\par
+ .byte $10 ; height in pixels\par
+XX09B1:\par
+ .word XX09B3 ; Service Routine\par
+;**************************************\par
+; USER ICON Service Routine\par
+;**************************************\par
+XX09B3:\par
+; .byte $A9,$0B,$8D,$1D,$85,$4C,$BF,$C2\par
+ lda #$0B\par
+ sta $851D\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 13--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500  jmp $C2BF\par
+;**************************************\par
+; USER ICON Data\par
+;**************************************\par
+XX09BB:\par
+ .byte $05,$FF,$82,$FE,$80,$04,$00,$82,$03,$80,$04,$00,$B7,$03,$80,$F8\par
+ .byte $00,$C0,$00,$03,$80,$CC,$00,$00,$00,$03,$80,$C6,$FD,$D9,$9E,$03\par
+ .byte $80,$C6,$E0,$D9,$B3,$03,$80,$C6,$C0,$D9,$B3,$03,$80,$C6,$C0,$CF\par
+ .byte $3F,$03,$80,$C6,$C0,$CF,$30,$03,$80,$CC,$C0,$C6,$33,$03,$80,$F8\par
+ .byte $C0,$C6,$1E,$03,$E2,$02,$01,$80,$04,$00,$01,$03,$06,$FF,$01,$7F\par
+ .byte $05,$FF\par
+;**************************************\par
+; Insert New Disk into Drive Code\par
+;**************************************\par
+XX0A0D:\par
+ LoadW r0,XX0A23 ; insert new disk into drive\par
+ jsr DoDlgBox    ; DialogBox\par
+ jsr OpenDisk\par
+ cpx #0\par
+ beq XX0A22\par
+ jsr XX0A91\par
+XX0A22:\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0A23:\par
+ .byte $81 ;\par
+ .byte $13 ; DB_USR_ROUT\par
+ .word XX0A30\par
+ .byte $0B ; DBTXTSTR\par
+ .byte $10 ; offset\par
+ .byte $10 ; offset\par
+ .word XX0A51\par
+ .byte $01 ; \'c4OK\'dc\par
+ .byte $11 ; xpos_in_bytes\par
+ .byte $48 ; ypos_in_lines\par
+ .byte $00 ; end of dialogbox\par
+;**************************************\par
+; USR Routine From insert in disk into drive\par
+; DialogBox (XX0A23)\par
+;**************************************\par
+XX0A30:\par
+ lda #0\par
+ sta mouseXPos+1\par
+ lda #224\par
+ sta mouseXPos\par
+ lda #112\par
+ sta mouseYPos\par
+ lda curDrive\par
+ cmp #8\par
+ bne XX0A4B\par
+ lda #65\par
+ sta XX0A6D ;drive number\par
+ clv\par
+ bvc XX0A50\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0A4B:\par
+ lda #66\par
+ sta XX0A6D ;drive number\par
+XX0A50:\par
+ rts \par
+;**************************************\par
+;\par
+;**************************************\par
+XX0A51:\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 14--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500  .byte $18\par
+ .byte "Insert new disk into drive "\par
+XX0A6D: \par
+ .byte "A"\par
+ .byte $1B\par
+ .byte $0\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0A70:\par
+ lda curDrive\par
+ cmp #8\par
+ beq XX0A7C\par
+ lda #8\par
+ clv\par
+ bvc XX0A7E\par
+XX0A7C:\par
+ lda #9\par
+XX0A7E:\par
+ jsr SetDevice\par
+ cpx #0\par
+ bne XX0A8D\par
+ jsr OpenDisk\par
+ cpx #0\par
+ bne XX0A8D\par
+ rts\par
+XX0A8D:\par
+ jsr XX0A91\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0A91:\par
+ cpx #0\par
+ beq XX0AA6\par
+ stx XX0AEE\par
+ LoadW r0,#XX0AA7 ; disk error code\par
+ jsr DoDlgBox     ; DialogBox\par
+ ldx XX0AEE\par
+XX0AA6:\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0AA7:\par
+ .byte $81\par
+ .byte $13 ; DB_USR_ROUT\par
+ .word XX0AB4\par
+ .byte $0B ; DBTXTSTR\par
+ .byte $10\par
+ .byte $10\par
+ .word XX0ADB\par
+ .byte $01 ; \'c4OK\'dc\par
+ .byte $11 ; xpos_in_bytes\par
+ .byte $48 ; ypos_in_lines\par
+ .byte $00 ; end of dialog box\par
+\pard\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500\par
+\par
+------------page 15--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2600\tx4040\tx5480\tx11500\tx11500\tx11500\tx11500 ;**************************************\par
+; USR Routine From disk error code\par
+; DialogBox (XX0AA7)\par
+;**************************************\par
+XX0AB4:\par
+ lda #0\par
+ sta mouseXPos+1\par
+ lda #224\par
+ sta mouseXPos\par
+ lda #112\par
+ sta mouseYPos\par
+ lda XX0AEE\par
+ sta r0L\par
+ lda #0\par
+ sta r0H\par
+ lda #0\par
+ sta r11H\par
+ lda #239\par
+ sta r11L\par
+ lda #48\par
+ sta r1H\par
+ lda #192\par
+ jsr PutDecimal\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0ADB:\par
+ .byte $18\par
+ .byte "Disk Error code "\par
+ .byte $1B\par
+ .byte $00\par
+XX0AEE:\par
+ .byte $00\par
+;**************************************\par
+;\par
+;**************************************\par
+XX0AEF:\par
+ rts\par
+;**************************************\par
+;\par
+;**************************************\par
+\cf0\highlight0\par
+}
+ 

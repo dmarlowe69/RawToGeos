@@ -1,0 +1,12 @@
+------------------------------------------------------------------------------
+------------- C:\Users\Denton\Desktop\Commodore Fall 2016\GEOS\ --------------
+--- __My GeoProgrammer Projects\_RawtoGeos\Disassembler\disassmembler.D64 ----
+------------------------------------------------------------------------------
+0 "DISASSEMBLER    " B8 2A
+120  "DESK TOP"         SYS
+80   "DisAssembler"     APP<
+8    "RAWTOGEOS"        APP
+141  "GEOWRITE"         APP
+92   "RAWTOGEOS/A"      DOC
+222 BLOCKS FREE.
+

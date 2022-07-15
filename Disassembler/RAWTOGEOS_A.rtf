@@ -1,0 +1,1229 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+{\colortbl ;\red0\green0\blue0;\red255\green255\blue255;}
+\viewkind4\uc1\pard\margl1728\margr1440\margt720\margb720\paperw11909\paperh16834\cf1\highlight2\fs18\par
+\par
+------------page 1--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Program Name   : RAWTOGEOS\par
+GEOS File Type : Application    \par
+GEOS Structure : SEQUENTIAL\par
+Load Address   : $0400\par
+Init Address   : $0400\par
+\tab\tab\tab\par
+Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$0400\tab 204BC1\tab jsr\tab UseSystemFon\par
+$0403\tab 208AC1\tab jsr\tab MouseUp\par
+$0406\tab 201204\tab jsr\tab $0412\par
+$0409\tab 202D04\tab jsr\tab $042D\par
+$040C\tab 20CF04\tab jsr\tab $04CF\par
+$040F\tab 4C2CC2\tab jmp\tab EnterDeskTop\par
+$0412\tab A9C0\tab lda\tab #192\par
+$0414\tab 852F\tab sta\tab dispBufferOn\par
+$0416\tab A904\tab lda\tab #4\par
+$0418\tab 8503\tab sta\tab r0H\par
+$041A\tab A922\tab lda\tab #34\par
+$041C\tab 8502\tab sta\tab r0L\par
+$041E\tab 2036C1\tab jsr\tab GraphicsStri\par
+$0421\tab 60\tab rts\tab\par
+$0422\tab 0502\tab ora\tab r0L\par
+$0424\tab 0100\tab ora\tab ($00,x)\par
+$0426\tab 00\tab brk\tab\par
+$0427\tab 00\tab brk\tab\par
+$0428\tab 03\tab ???\tab\par
+$0429\tab 3F\tab ???\tab\par
+$042A\tab 01C7\tab ora\tab ($C7,x)\par
+$042C\tab 00\tab brk\tab\par
+$042D\tab A904\tab lda\tab #4\par
+$042F\tab 8503\tab sta\tab r0H\par
+$0431\tab A939\tab lda\tab #57\par
+$0433\tab 8502\tab sta\tab r0L\par
+$0435\tab 205AC1\tab jsr\tab DoIcons\par
+$0438\tab 60\tab rts\tab\par
+$0439\tab 0100\tab ora\tab ($00,x)\par
+$043B\tab 00\tab brk\tab\par
+$043C\tab 00\tab brk\tab\par
+$043D\tab 00\tab brk\tab\par
+$043E\tab 00\tab brk\tab\par
+$043F\tab 00\tab brk\tab\par
+$0440\tab 00\tab brk\tab\par
+$0441\tab 0101\tab ora\tab ($01,x)\par
+$0443\tab 00\tab brk\tab\par
+$0444\tab 00\tab brk\tab\par
+$0445\tab A904\tab lda\tab #4\par
+$0447\tab 8503\tab sta\tab r0H\par
+$0449\tab A951\tab lda\tab #81\par
+$044B\tab 8502\tab sta\tab r0L\par
+$044D\tab 2056C2\tab jsr\tab DoDlgBox\par
+$0450\tab 60\tab rts\tab\par
+$0451\tab 810E\tab sta\tab (r6L,x)\par
+$0453\tab 0B\tab ???\tab\par
+$0454\tab 1010\tab bpl\tab $0466\par
+$0456\tab 68\tab pla\tab\par
+$0457\tab 04\tab ???\tab\par
+$0458\tab 0B\tab ???\tab\par
+$0459\tab 1020\tab bpl\tab $047B\par
+$045B\tab 83\tab ???\tab\par
+$045C\tab 04\tab ???\tab\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 2--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$045D\tab 0B\tab ???\tab\par
+$045E\tab 1030\tab bpl\tab $0490\par
+$0460\tab A004\tab ldy\tab #4\par
+$0462\tab 0B\tab ???\tab\par
+$0463\tab 1040\tab bpl\tab $04A5\par
+$0465\tab BE0400\tab ldx\tab $0004,y\par
+$0468\tab 18\tab clc\tab\par
+$0469\tab 4C6576\tab jmp\tab $7665\par
+$046C\tab 656C\tab adc\tab $6C\par
+$046E\tab 203020\tab jsr\tab $2030\par
+$0471\tab 74\tab ???\tab\par
+$0472\tab 6573\tab adc\tab a3H\par
+$0474\tab 74\tab ???\tab\par
+$0475\tab 206170\tab jsr\tab $7061\par
+$0478\tab 706C\tab bvs\tab $04E6\par
+$047A\tab 6963\tab adc\tab #99\par
+$047C\tab 6174\tab adc\tab (a4L,x)\par
+$047E\tab 696F\tab adc\tab #111\par
+$0480\tab 6E1B00\tab ror\tab $001B\par
+$0483\tab 18\tab clc\tab\par
+$0484\tab 44\tab ???\tab\par
+$0485\tab 6573\tab adc\tab a3H\par
+$0487\tab 6967\tab adc\tab #103\par
+$0489\tab 6E6564\tab ror\tab $6465\par
+$048C\tab 206279\tab jsr\tab $7962\par
+$048F\tab 204465\tab jsr\tab $6544\par
+$0492\tab 6E746F\tab ror\tab $6F74\par
+$0495\tab 6E204D\tab ror\tab $4D20\par
+$0498\tab 6172\tab adc\tab (a3L,x)\par
+$049A\tab 6C6F77\tab jmp\tab ($776F)\par
+$049D\tab 651B\tab adc\tab r12H\par
+$049F\tab 00\tab brk\tab\par
+$04A0\tab 18\tab clc\tab\par
+$04A1\tab 5645\tab lsr\tab $45,x\par
+$04A3\tab 52\tab ???\tab\par
+$04A4\tab 53\tab ???\tab\par
+$04A5\tab 494F\tab eor\tab #79\par
+$04A7\tab 4E2031\tab lsr\tab $3120\par
+$04AA\tab 2E302C\tab rol\tab $2C30\par
+$04AD\tab 20436F\tab jsr\tab $6F43\par
+$04B0\tab 7079\tab bvs\tab $052B\par
+$04B2\tab 72\tab ???\tab\par
+$04B3\tab 6967\tab adc\tab #103\par
+$04B5\tab 68\tab pla\tab\par
+$04B6\tab 74\tab ???\tab\par
+$04B7\tab 203139\tab jsr\tab $3931\par
+$04BA\tab 38\tab sec\tab\par
+$04BB\tab 38\tab sec\tab\par
+$04BC\tab 1B\tab ???\tab\par
+$04BD\tab 00\tab brk\tab\par
+$04BE\tab 18\tab clc\tab\par
+$04BF\tab 53\tab ???\tab\par
+$04C0\tab 68\tab pla\tab\par
+$04C1\tab 6164\tab adc\tab ($64,x)\par
+$04C3\tab 6F\tab ???\tab\par
+$04C4\tab 77\tab ???\tab\par
+$04C5\tab 205379\tab jsr\tab $7953\par
+$04C8\tab 73\tab ???\tab\par
+$04C9\tab 74\tab ???\tab\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 3--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$04CA\tab 656D\tab adc\tab $6D\par
+$04CC\tab 73\tab ???\tab\par
+$04CD\tab 1B\tab ???\tab\par
+$04CE\tab 00\tab brk\tab\par
+$04CF\tab EA\tab nop\tab\par
+$04D0\tab A904\tab lda\tab #4\par
+$04D2\tab 8503\tab sta\tab r0H\par
+$04D4\tab A9EB\tab lda\tab #235\par
+$04D6\tab 8502\tab sta\tab r0L\par
+$04D8\tab 2056C2\tab jsr\tab DoDlgBox\par
+$04DB\tab A502\tab lda\tab r0L\par
+$04DD\tab C902\tab cmp\tab #2\par
+$04DF\tab F006\tab beq\tab $04E7\par
+$04E1\tab 200F05\tab jsr\tab $050F\par
+$04E4\tab B8\tab clv\tab\par
+$04E5\tab 50E9\tab bvc\tab $04D0\par
+$04E7\tab 204504\tab jsr\tab $0445\par
+$04EA\tab 60\tab rts\tab\par
+$04EB\tab 810B\tab sta\tab (r4H,x)\par
+$04ED\tab 0E14F8\tab asl\tab $F814\par
+$04F0\tab 04\tab ???\tab\par
+$04F1\tab 02\tab ???\tab\par
+$04F2\tab 02\tab ???\tab\par
+$04F3\tab 47\tab ???\tab\par
+$04F4\tab 010F\tab ora\tab (r6H,x)\par
+$04F6\tab 4600\tab lsr\tab $00\par
+$04F8\tab 18\tab clc\tab\par
+$04F9\tab 52\tab ???\tab\par
+$04FA\tab 756E\tab adc\tab $6E,x\par
+$04FC\tab 205465\tab jsr\tab $6554\par
+$04FF\tab 73\tab ???\tab\par
+$0500\tab 74\tab ???\tab\par
+$0501\tab 204150\tab jsr\tab $5041\par
+$0504\tab 504C\tab bvc\tab $0552\par
+$0506\tab 4943\tab eor\tab #67\par
+$0508\tab 4154\tab eor\tab ($54,x)\par
+$050A\tab 494F\tab eor\tab #79\par
+$050C\tab 4E1B00\tab lsr\tab $001B\par
+$050F\tab EA\tab nop\tab\par
+$0510\tab 201405\tab jsr\tab $0514\par
+$0513\tab 60\tab rts\tab\par
+$0514\tab A900\tab lda\tab #0\par
+$0516\tab 8510\tab sta\tab r7L\par
+$0518\tab A900\tab lda\tab #0\par
+$051A\tab 8503\tab sta\tab r0H\par
+$051C\tab A900\tab lda\tab #0\par
+$051E\tab 8502\tab sta\tab r0L\par
+$0520\tab A905\tab lda\tab #5\par
+$0522\tab 850D\tab sta\tab r5H\par
+$0524\tab A9F7\tab lda\tab #247\par
+$0526\tab 850C\tab sta\tab r5L\par
+$0528\tab A900\tab lda\tab #0\par
+$052A\tab 8517\tab sta\tab r10H\par
+$052C\tab A900\tab lda\tab #0\par
+$052E\tab 8516\tab sta\tab r10L\par
+$0530\tab 200508\tab jsr\tab $0805\par
+$0533\tab E000\tab cpx\tab #0\par
+$0535\tab F001\tab beq\tab $0538\par
+$0537\tab 60\tab rts\tab\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 4--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$0538\tab A905\tab lda\tab #5\par
+$053A\tab 850F\tab sta\tab r6H\par
+$053C\tab A9F7\tab lda\tab #247\par
+$053E\tab 850E\tab sta\tab r6L\par
+$0540\tab 200BC2\tab jsr\tab FindFile\par
+$0543\tab E000\tab cpx\tab #0\par
+$0545\tab F001\tab beq\tab $0548\par
+$0547\tab 60\tab rts\tab\par
+$0548\tab A505\tab lda\tab r1H\par
+$054A\tab 85FE\tab sta\tab a1H\par
+$054C\tab A504\tab lda\tab r1L\par
+$054E\tab 85FD\tab sta\tab a1L\par
+$0550\tab A50D\tab lda\tab r5H\par
+$0552\tab 8577\tab sta\tab a5H\par
+$0554\tab A50C\tab lda\tab r5L\par
+$0556\tab 8576\tab sta\tab a5L\par
+$0558\tab A906\tab lda\tab #6\par
+$055A\tab 8503\tab sta\tab r0H\par
+$055C\tab A937\tab lda\tab #55\par
+$055E\tab 8502\tab sta\tab r0L\par
+$0560\tab 2056C2\tab jsr\tab DoDlgBox\par
+$0563\tab A502\tab lda\tab r0L\par
+$0565\tab C901\tab cmp\tab #1\par
+$0567\tab F001\tab beq\tab $056A\par
+$0569\tab 60\tab rts\tab\par
+$056A\tab 2047C2\tab jsr\tab GetDirHead\par
+$056D\tab A900\tab lda\tab #0\par
+$056F\tab 8507\tab sta\tab r2H\par
+$0571\tab A9F0\tab lda\tab #240\par
+$0573\tab 8506\tab sta\tab r2L\par
+$0575\tab A906\tab lda\tab #6\par
+$0577\tab 850F\tab sta\tab r6H\par
+$0579\tab A917\tab lda\tab #23\par
+$057B\tab 850E\tab sta\tab r6L\par
+$057D\tab 20FCC1\tab jsr\tab BlkAlloc\par
+$0580\tab E000\tab cpx\tab #0\par
+$0582\tab D064\tab bne\tab $05E8\par
+$0584\tab A506\tab lda\tab r2L\par
+$0586\tab C900\tab cmp\tab #0\par
+$0588\tab F05E\tab beq\tab $05E8\par
+$058A\tab A509\tab lda\tab r3H\par
+$058C\tab 8505\tab sta\tab r1H\par
+$058E\tab A508\tab lda\tab r3L\par
+$0590\tab 8504\tab sta\tab r1L\par
+$0592\tab A907\tab lda\tab #7\par
+$0594\tab 850B\tab sta\tab r4H\par
+$0596\tab A905\tab lda\tab #5\par
+$0598\tab 850A\tab sta\tab r4L\par
+$059A\tab 20E7C1\tab jsr\tab PutBlock\par
+$059D\tab E000\tab cpx\tab #0\par
+$059F\tab D047\tab bne\tab $05E8\par
+$05A1\tab A013\tab ldy\tab #19\par
+$05A3\tab A504\tab lda\tab r1L\par
+$05A5\tab 9176\tab sta\tab (a5L),y\par
+$05A7\tab C8\tab iny\tab\par
+$05A8\tab A505\tab lda\tab r1H\par
+$05AA\tab 9176\tab sta\tab (a5L),y\par
+$05AC\tab C8\tab iny\tab\par
+$05AD\tab A900\tab lda\tab #0\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 5--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$05AF\tab 9176\tab sta\tab (a5L),y\par
+$05B1\tab C8\tab iny\tab\par
+$05B2\tab A903\tab lda\tab #3\par
+$05B4\tab 9176\tab sta\tab (a5L),y\par
+$05B6\tab C8\tab iny\tab\par
+$05B7\tab A204\tab ldx\tab #4\par
+$05B9\tab B9FF84\tab lda\tab $84FF,y\par
+$05BC\tab 9176\tab sta\tab (a5L),y\par
+$05BE\tab C8\tab iny\tab\par
+$05BF\tab CA\tab dex\tab\par
+$05C0\tab D0F7\tab bne\tab $05B9\par
+$05C2\tab A5FE\tab lda\tab a1H\par
+$05C4\tab 8505\tab sta\tab r1H\par
+$05C6\tab A5FD\tab lda\tab a1L\par
+$05C8\tab 8504\tab sta\tab r1L\par
+$05CA\tab A980\tab lda\tab #128\par
+$05CC\tab 850B\tab sta\tab r4H\par
+$05CE\tab A900\tab lda\tab #0\par
+$05D0\tab 850A\tab sta\tab r4L\par
+$05D2\tab 20E7C1\tab jsr\tab PutBlock\par
+$05D5\tab E000\tab cpx\tab #0\par
+$05D7\tab D00F\tab bne\tab $05E8\par
+$05D9\tab 204AC2\tab jsr\tab PutDirHead\par
+$05DC\tab A906\tab lda\tab #6\par
+$05DE\tab 8503\tab sta\tab r0H\par
+$05E0\tab A979\tab lda\tab #121\par
+$05E2\tab 8502\tab sta\tab r0L\par
+$05E4\tab 2056C2\tab jsr\tab DoDlgBox\par
+$05E7\tab 60\tab rts\tab\par
+$05E8\tab 20910A\tab jsr\tab $0A91\par
+$05EB\tab A906\tab lda\tab #6\par
+$05ED\tab 8503\tab sta\tab r0H\par
+$05EF\tab A9A0\tab lda\tab #160\par
+$05F1\tab 8502\tab sta\tab r0L\par
+$05F3\tab 2056C2\tab jsr\tab DoDlgBox\par
+$05F6\tab 60\tab rts\tab\par
+$05F7\tab 00\tab brk\tab\par
+$05F8\tab 00\tab brk\tab\par
+$05F9\tab 00\tab brk\tab\par
+$05FA\tab 00\tab brk\tab\par
+$05FB\tab 00\tab brk\tab\par
+$05FC\tab 00\tab brk\tab\par
+$05FD\tab 00\tab brk\tab\par
+$05FE\tab 00\tab brk\tab\par
+$05FF\tab 00\tab brk\tab\par
+$0600\tab 00\tab brk\tab\par
+$0601\tab 00\tab brk\tab\par
+$0602\tab 00\tab brk\tab\par
+$0603\tab 00\tab brk\tab\par
+$0604\tab 00\tab brk\tab\par
+$0605\tab 00\tab brk\tab\par
+$0606\tab 00\tab brk\tab\par
+$0607\tab 00\tab brk\tab\par
+$0608\tab 00\tab brk\tab\par
+$0609\tab 00\tab brk\tab\par
+$060A\tab 00\tab brk\tab\par
+$060B\tab 00\tab brk\tab\par
+$060C\tab 00\tab brk\tab\par
+$060D\tab 00\tab brk\tab\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 6--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$060E\tab 00\tab brk\tab\par
+$060F\tab 00\tab brk\tab\par
+$0610\tab 00\tab brk\tab\par
+$0611\tab 00\tab brk\tab\par
+$0612\tab 00\tab brk\tab\par
+$0613\tab 00\tab brk\tab\par
+$0614\tab 00\tab brk\tab\par
+$0615\tab 00\tab brk\tab\par
+$0616\tab 00\tab brk\tab\par
+$0617\tab 00\tab brk\tab\par
+$0618\tab 00\tab brk\tab\par
+$0619\tab 00\tab brk\tab\par
+$061A\tab 00\tab brk\tab\par
+$061B\tab 00\tab brk\tab\par
+$061C\tab 00\tab brk\tab\par
+$061D\tab 00\tab brk\tab\par
+$061E\tab 00\tab brk\tab\par
+$061F\tab 00\tab brk\tab\par
+$0620\tab 00\tab brk\tab\par
+$0621\tab 00\tab brk\tab\par
+$0622\tab 00\tab brk\tab\par
+$0623\tab 00\tab brk\tab\par
+$0624\tab 00\tab brk\tab\par
+$0625\tab 00\tab brk\tab\par
+$0626\tab 00\tab brk\tab\par
+$0627\tab 00\tab brk\tab\par
+$0628\tab 00\tab brk\tab\par
+$0629\tab 00\tab brk\tab\par
+$062A\tab 00\tab brk\tab\par
+$062B\tab 00\tab brk\tab\par
+$062C\tab 00\tab brk\tab\par
+$062D\tab 00\tab brk\tab\par
+$062E\tab 00\tab brk\tab\par
+$062F\tab 00\tab brk\tab\par
+$0630\tab 00\tab brk\tab\par
+$0631\tab 00\tab brk\tab\par
+$0632\tab 00\tab brk\tab\par
+$0633\tab 00\tab brk\tab\par
+$0634\tab 00\tab brk\tab\par
+$0635\tab 00\tab brk\tab\par
+$0636\tab 00\tab brk\tab\par
+$0637\tab 810B\tab sta\tab (r4H,x)\par
+$0639\tab 1010\tab bpl\tab $064B\par
+$063B\tab 4906\tab eor\tab #6\par
+$063D\tab 0B\tab ???\tab\par
+$063E\tab 1020\tab bpl\tab $0660\par
+$0640\tab 6106\tab adc\tab (r2L,x)\par
+$0642\tab 0101\tab ora\tab ($01,x)\par
+$0644\tab 48\tab pha\tab\par
+$0645\tab 02\tab ???\tab\par
+$0646\tab 1148\tab ora\tab ($48),y\par
+$0648\tab 00\tab brk\tab\par
+$0649\tab 18\tab clc\tab\par
+$064A\tab 6C6173\tab jmp\tab ($7361)\par
+$064D\tab 74\tab ???\tab\par
+$064E\tab 206368\tab jsr\tab $6863\par
+$0651\tab 616E\tab adc\tab ($6E,x)\par
+$0653\tab 63\tab ???\tab\par
+$0654\tab 6520\tab adc\tab r15L\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 7--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$0656\tab 74\tab ???\tab\par
+$0657\tab 6F\tab ???\tab\par
+$0658\tab 206162\tab jsr\tab $6261\par
+$065B\tab 6F\tab ???\tab\par
+$065C\tab 72\tab ???\tab\par
+$065D\tab 74\tab ???\tab\par
+$065E\tab 211B\tab and\tab (r12H,x)\par
+$0660\tab 00\tab brk\tab\par
+$0661\tab 18\tab clc\tab\par
+$0662\tab 7072\tab bvs\tab $06D6\par
+$0664\tab 6573\tab adc\tab a3H\par
+$0666\tab 73\tab ???\tab\par
+$0667\tab 206361\tab jsr\tab $6163\par
+$066A\tab 6E6365\tab ror\tab $6563\par
+$066D\tab 6C2074\tab jmp\tab ($7420)\par
+$0670\tab 6F\tab ???\tab\par
+$0671\tab 207175\tab jsr\tab $7571\par
+$0674\tab 6974\tab adc\tab #116\par
+$0676\tab 211B\tab and\tab (r12H,x)\par
+$0678\tab 00\tab brk\tab\par
+$0679\tab 810B\tab sta\tab (r4H,x)\par
+$067B\tab 1010\tab bpl\tab $068D\par
+$067D\tab 83\tab ???\tab\par
+$067E\tab 0601\tab asl\tab $01\par
+$0680\tab 0148\tab ora\tab ($48,x)\par
+$0682\tab 00\tab brk\tab\par
+$0683\tab 18\tab clc\tab\par
+$0684\tab 4669\tab lsr\tab $69\par
+$0686\tab 6C6520\tab jmp\tab ($2065)\par
+$0689\tab 63\tab ???\tab\par
+$068A\tab 6F\tab ???\tab\par
+$068B\tab 6E7665\tab ror\tab $6576\par
+$068E\tab 72\tab ???\tab\par
+$068F\tab 73\tab ???\tab\par
+$0690\tab 696F\tab adc\tab #111\par
+$0692\tab 6E2073\tab ror\tab $7320\par
+$0695\tab 7563\tab adc\tab $63,x\par
+$0697\tab 63\tab ???\tab\par
+$0698\tab 6573\tab adc\tab a3H\par
+$069A\tab 73\tab ???\tab\par
+$069B\tab 6675\tab ror\tab a4H\par
+$069D\tab 6C1B00\tab jmp\tab ($001B)\par
+$06A0\tab 810B\tab sta\tab (r4H,x)\par
+$06A2\tab 1010\tab bpl\tab $06B4\par
+$06A4\tab AA\tab tax\tab\par
+$06A5\tab 0601\tab asl\tab $01\par
+$06A7\tab 0148\tab ora\tab ($48,x)\par
+$06A9\tab 00\tab brk\tab\par
+$06AA\tab 18\tab clc\tab\par
+$06AB\tab 44\tab ???\tab\par
+$06AC\tab 6973\tab adc\tab #115\par
+$06AE\tab 6B\tab ???\tab\par
+$06AF\tab 206572\tab jsr\tab $7265\par
+$06B2\tab 72\tab ???\tab\par
+$06B3\tab 6F\tab ???\tab\par
+$06B4\tab 72\tab ???\tab\par
+$06B5\tab 202D20\tab jsr\tab $202D\par
+$06B8\tab 7661\tab ror\tab $61,x\par
+$06BA\tab 6C6964\tab jmp\tab ($6469)\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 8--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$06BD\tab 6174\tab adc\tab (a4L,x)\par
+$06BF\tab 6520\tab adc\tab r15L\par
+$06C1\tab 74\tab ???\tab\par
+$06C2\tab 68\tab pla\tab\par
+$06C3\tab 6520\tab adc\tab r15L\par
+$06C5\tab 64\tab ???\tab\par
+$06C6\tab 6973\tab adc\tab #115\par
+$06C8\tab 6B\tab ???\tab\par
+$06C9\tab 211B\tab and\tab (r12H,x)\par
+$06CB\tab 00\tab brk\tab\par
+$06CC\tab 810B\tab sta\tab (r4H,x)\par
+$06CE\tab 1020\tab bpl\tab $06F0\par
+$06D0\tab D8\tab cld\tab\par
+$06D1\tab 060D\tab asl\tab r5H\par
+$06D3\tab 1030\tab bpl\tab $0705\par
+$06D5\tab 0C\tab ???\tab\par
+$06D6\tab 1000\tab bpl\tab $06D8\par
+$06D8\tab 18\tab clc\tab\par
+$06D9\tab 7065\tab bvs\tab $0740\par
+$06DB\tab 72\tab ???\tab\par
+$06DC\tab 6D656E\tab adc\tab $6E65\par
+$06DF\tab 616E\tab adc\tab ($6E,x)\par
+$06E1\tab 74\tab ???\tab\par
+$06E2\tab 206E61\tab jsr\tab $616E\par
+$06E5\tab 6D653A\tab adc\tab $3A65\par
+$06E8\tab 1B\tab ???\tab\par
+$06E9\tab 00\tab brk\tab\par
+$06EA\tab 810B\tab sta\tab (r4H,x)\par
+$06EC\tab 1020\tab bpl\tab $070E\par
+$06EE\tab F606\tab inc\tab r2L,x\par
+$06F0\tab 0D1030\tab ora\tab $3010\par
+$06F3\tab 0C\tab ???\tab\par
+$06F4\tab 1000\tab bpl\tab $06F6\par
+$06F6\tab 18\tab clc\tab\par
+$06F7\tab 6175\tab adc\tab (a4H,x)\par
+$06F9\tab 74\tab ???\tab\par
+$06FA\tab 68\tab pla\tab\par
+$06FB\tab 6F\tab ???\tab\par
+$06FC\tab 72\tab ???\tab\par
+$06FD\tab 206E61\tab jsr\tab $616E\par
+$0700\tab 6D653A\tab adc\tab $3A65\par
+$0703\tab 1B\tab ???\tab\par
+$0704\tab 00\tab brk\tab\par
+$0705\tab 00\tab brk\tab\par
+$0706\tab 00\tab brk\tab\par
+$0707\tab 03\tab ???\tab\par
+$0708\tab 15BF\tab ora\tab $BF,x\par
+$070A\tab FF\tab ???\tab\par
+$070B\tab C000\tab cpy\tab #0\par
+$070D\tab 9C\tab ???\tab\par
+$070E\tab 00\tab brk\tab\par
+$070F\tab 00\tab brk\tab\par
+$0710\tab AA\tab tax\tab\par
+$0711\tab 00\tab brk\tab\par
+$0712\tab 00\tab brk\tab\par
+$0713\tab 98\tab tya\tab\par
+$0714\tab 00\tab brk\tab\par
+$0715\tab 40\tab rti\tab\par
+$0716\tab F000\tab beq\tab $0718\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 9--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$0718\tab 00\tab brk\tab\par
+$0719\tab B8\tab clv\tab\par
+$071A\tab 00\tab brk\tab\par
+$071B\tab 00\tab brk\tab\par
+$071C\tab B039\tab bcs\tab $0757\par
+$071E\tab 0C\tab ???\tab\par
+$071F\tab E038\tab cpx\tab #56\par
+$0721\tab 1C\tab ???\tab\par
+$0722\tab E072\tab cpx\tab #114\par
+$0724\tab 0EA0B2\tab asl\tab $B2A0\par
+$0727\tab 0A\tab asl\tab a\par
+$0728\tab E0A1\tab cpx\tab #161\par
+$072A\tab 03\tab ???\tab\par
+$072B\tab E010\tab cpx\tab #16\par
+$072D\tab C0E1\tab cpy\tab #225\par
+$072F\tab 04\tab ???\tab\par
+$0730\tab 00\tab brk\tab\par
+$0731\tab E080\tab cpx\tab #128\par
+$0733\tab A080\tab ldy\tab #128\par
+$0735\tab 63\tab ???\tab\par
+$0736\tab F0E0\tab beq\tab $0718\par
+$0738\tab A0F0\tab ldy\tab #240\par
+$073A\tab C05C\tab cpy\tab #92\par
+$073C\tab 7C\tab ???\tab\par
+$073D\tab E01F\tab cpx\tab #31\par
+$073F\tab 98\tab tya\tab\par
+$0740\tab F001\tab beq\tab $0743\par
+$0742\tab 00\tab brk\tab\par
+$0743\tab F8\tab sed\tab\par
+$0744\tab 00\tab brk\tab\par
+$0745\tab 00\tab brk\tab\par
+$0746\tab FF\tab ???\tab\par
+$0747\tab FF\tab ???\tab\par
+$0748\tab FF\tab ???\tab\par
+$0749\tab 82\tab ???\tab\par
+$074A\tab 03\tab ???\tab\par
+$074B\tab 00\tab brk\tab\par
+$074C\tab 00\tab brk\tab\par
+$074D\tab 00\tab brk\tab\par
+$074E\tab 00\tab brk\tab\par
+$074F\tab 00\tab brk\tab\par
+$0750\tab 00\tab brk\tab\par
+$0751\tab 00\tab brk\tab\par
+$0752\tab 52\tab ???\tab\par
+$0753\tab 4157\tab eor\tab ($57,x)\par
+$0755\tab 202020\tab jsr\tab $2020\par
+$0758\tab 202020\tab jsr\tab $2020\par
+$075B\tab 202020\tab jsr\tab $2020\par
+$075E\tab 5631\tab lsr\tab msePicPtr,x\par
+$0760\tab 2E3000\tab rol\tab $0030\par
+$0763\tab 202000\tab jsr\tab $0020\par
+$0766\tab 00\tab brk\tab\par
+$0767\tab 00\tab brk\tab\par
+$0768\tab 00\tab brk\tab\par
+$0769\tab 00\tab brk\tab\par
+$076A\tab 00\tab brk\tab\par
+$076B\tab 00\tab brk\tab\par
+$076C\tab 00\tab brk\tab\par
+$076D\tab 00\tab brk\tab\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 10--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$076E\tab 00\tab brk\tab\par
+$076F\tab 00\tab brk\tab\par
+$0770\tab 00\tab brk\tab\par
+$0771\tab 00\tab brk\tab\par
+$0772\tab 00\tab brk\tab\par
+$0773\tab 00\tab brk\tab\par
+$0774\tab 00\tab brk\tab\par
+$0775\tab 00\tab brk\tab\par
+$0776\tab 00\tab brk\tab\par
+$0777\tab 00\tab brk\tab\par
+$0778\tab 00\tab brk\tab\par
+$0779\tab 00\tab brk\tab\par
+$077A\tab 00\tab brk\tab\par
+$077B\tab 00\tab brk\tab\par
+$077C\tab 00\tab brk\tab\par
+$077D\tab 00\tab brk\tab\par
+$077E\tab 00\tab brk\tab\par
+$077F\tab 00\tab brk\tab\par
+$0780\tab 00\tab brk\tab\par
+$0781\tab 00\tab brk\tab\par
+$0782\tab 00\tab brk\tab\par
+$0783\tab 00\tab brk\tab\par
+$0784\tab 00\tab brk\tab\par
+$0785\tab 00\tab brk\tab\par
+$0786\tab 00\tab brk\tab\par
+$0787\tab 00\tab brk\tab\par
+$0788\tab 00\tab brk\tab\par
+$0789\tab 00\tab brk\tab\par
+$078A\tab 00\tab brk\tab\par
+$078B\tab 00\tab brk\tab\par
+$078C\tab 00\tab brk\tab\par
+$078D\tab 00\tab brk\tab\par
+$078E\tab 00\tab brk\tab\par
+$078F\tab 00\tab brk\tab\par
+$0790\tab 00\tab brk\tab\par
+$0791\tab 00\tab brk\tab\par
+$0792\tab 00\tab brk\tab\par
+$0793\tab 00\tab brk\tab\par
+$0794\tab 00\tab brk\tab\par
+$0795\tab 00\tab brk\tab\par
+$0796\tab 00\tab brk\tab\par
+$0797\tab 00\tab brk\tab\par
+$0798\tab 00\tab brk\tab\par
+$0799\tab 00\tab brk\tab\par
+$079A\tab 00\tab brk\tab\par
+$079B\tab 00\tab brk\tab\par
+$079C\tab 00\tab brk\tab\par
+$079D\tab 00\tab brk\tab\par
+$079E\tab 00\tab brk\tab\par
+$079F\tab 00\tab brk\tab\par
+$07A0\tab 00\tab brk\tab\par
+$07A1\tab 00\tab brk\tab\par
+$07A2\tab 00\tab brk\tab\par
+$07A3\tab 00\tab brk\tab\par
+$07A4\tab 00\tab brk\tab\par
+$07A5\tab 00\tab brk\tab\par
+$07A6\tab 00\tab brk\tab\par
+$07A7\tab 00\tab brk\tab\par
+$07A8\tab 00\tab brk\tab\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 11--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$07A9\tab 00\tab brk\tab\par
+$07AA\tab 00\tab brk\tab\par
+$07AB\tab 00\tab brk\tab\par
+$07AC\tab 00\tab brk\tab\par
+$07AD\tab 00\tab brk\tab\par
+$07AE\tab 00\tab brk\tab\par
+$07AF\tab 00\tab brk\tab\par
+$07B0\tab 00\tab brk\tab\par
+$07B1\tab 00\tab brk\tab\par
+$07B2\tab 00\tab brk\tab\par
+$07B3\tab 00\tab brk\tab\par
+$07B4\tab 00\tab brk\tab\par
+$07B5\tab 00\tab brk\tab\par
+$07B6\tab 00\tab brk\tab\par
+$07B7\tab 00\tab brk\tab\par
+$07B8\tab 00\tab brk\tab\par
+$07B9\tab 00\tab brk\tab\par
+$07BA\tab 00\tab brk\tab\par
+$07BB\tab 00\tab brk\tab\par
+$07BC\tab 00\tab brk\tab\par
+$07BD\tab 00\tab brk\tab\par
+$07BE\tab 00\tab brk\tab\par
+$07BF\tab 00\tab brk\tab\par
+$07C0\tab 00\tab brk\tab\par
+$07C1\tab 00\tab brk\tab\par
+$07C2\tab 00\tab brk\tab\par
+$07C3\tab 00\tab brk\tab\par
+$07C4\tab 00\tab brk\tab\par
+$07C5\tab 00\tab brk\tab\par
+$07C6\tab 00\tab brk\tab\par
+$07C7\tab 00\tab brk\tab\par
+$07C8\tab 00\tab brk\tab\par
+$07C9\tab 00\tab brk\tab\par
+$07CA\tab 00\tab brk\tab\par
+$07CB\tab 00\tab brk\tab\par
+$07CC\tab 00\tab brk\tab\par
+$07CD\tab 00\tab brk\tab\par
+$07CE\tab 00\tab brk\tab\par
+$07CF\tab 00\tab brk\tab\par
+$07D0\tab 00\tab brk\tab\par
+$07D1\tab 00\tab brk\tab\par
+$07D2\tab 00\tab brk\tab\par
+$07D3\tab 00\tab brk\tab\par
+$07D4\tab 00\tab brk\tab\par
+$07D5\tab 00\tab brk\tab\par
+$07D6\tab 00\tab brk\tab\par
+$07D7\tab 00\tab brk\tab\par
+$07D8\tab 00\tab brk\tab\par
+$07D9\tab 00\tab brk\tab\par
+$07DA\tab 00\tab brk\tab\par
+$07DB\tab 00\tab brk\tab\par
+$07DC\tab 00\tab brk\tab\par
+$07DD\tab 00\tab brk\tab\par
+$07DE\tab 00\tab brk\tab\par
+$07DF\tab 00\tab brk\tab\par
+$07E0\tab 00\tab brk\tab\par
+$07E1\tab 00\tab brk\tab\par
+$07E2\tab 00\tab brk\tab\par
+$07E3\tab 00\tab brk\tab\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 12--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$07E4\tab 00\tab brk\tab\par
+$07E5\tab 00\tab brk\tab\par
+$07E6\tab 00\tab brk\tab\par
+$07E7\tab 00\tab brk\tab\par
+$07E8\tab 00\tab brk\tab\par
+$07E9\tab 00\tab brk\tab\par
+$07EA\tab 00\tab brk\tab\par
+$07EB\tab 00\tab brk\tab\par
+$07EC\tab 00\tab brk\tab\par
+$07ED\tab 00\tab brk\tab\par
+$07EE\tab 00\tab brk\tab\par
+$07EF\tab 00\tab brk\tab\par
+$07F0\tab 00\tab brk\tab\par
+$07F1\tab 00\tab brk\tab\par
+$07F2\tab 00\tab brk\tab\par
+$07F3\tab 00\tab brk\tab\par
+$07F4\tab 00\tab brk\tab\par
+$07F5\tab 00\tab brk\tab\par
+$07F6\tab 00\tab brk\tab\par
+$07F7\tab 00\tab brk\tab\par
+$07F8\tab 00\tab brk\tab\par
+$07F9\tab 00\tab brk\tab\par
+$07FA\tab 00\tab brk\tab\par
+$07FB\tab 00\tab brk\tab\par
+$07FC\tab 00\tab brk\tab\par
+$07FD\tab 00\tab brk\tab\par
+$07FE\tab 00\tab brk\tab\par
+$07FF\tab 00\tab brk\tab\par
+$0800\tab 00\tab brk\tab\par
+$0801\tab 00\tab brk\tab\par
+$0802\tab 00\tab brk\tab\par
+$0803\tab 00\tab brk\tab\par
+$0804\tab 00\tab brk\tab\par
+$0805\tab A503\tab lda\tab r0H\par
+$0807\tab 8D8C08\tab sta\tab $088C\par
+$080A\tab A502\tab lda\tab r0L\par
+$080C\tab 8D8B08\tab sta\tab $088B\par
+$080F\tab A510\tab lda\tab r7L\par
+$0811\tab 8D8E08\tab sta\tab $088E\par
+$0814\tab A511\tab lda\tab r7H\par
+$0816\tab 8D8D08\tab sta\tab $088D\par
+$0819\tab A50D\tab lda\tab r5H\par
+$081B\tab 8D9008\tab sta\tab $0890\par
+$081E\tab A50C\tab lda\tab r5L\par
+$0820\tab 8D8F08\tab sta\tab $088F\par
+$0823\tab A517\tab lda\tab r10H\par
+$0825\tab 8D9208\tab sta\tab $0892\par
+$0828\tab A516\tab lda\tab r10L\par
+$082A\tab 8D9108\tab sta\tab $0891\par
+$082D\tab A908\tab lda\tab #8\par
+$082F\tab 8503\tab sta\tab r0H\par
+$0831\tab A993\tab lda\tab #147\par
+$0833\tab 8502\tab sta\tab r0L\par
+$0835\tab 2056C2\tab jsr\tab DoDlgBox\par
+$0838\tab A502\tab lda\tab r0L\par
+$083A\tab C902\tab cmp\tab #2\par
+$083C\tab F045\tab beq\tab $0883\par
+$083E\tab C905\tab cmp\tab #5\par
+$0840\tab F046\tab beq\tab $0888\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 13--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$0842\tab C906\tab cmp\tab #6\par
+$0844\tab F005\tab beq\tab $084B\par
+$0846\tab C90B\tab cmp\tab #11\par
+$0848\tab F00B\tab beq\tab $0855\par
+$084A\tab 00\tab brk\tab\par
+$084B\tab 200D0A\tab jsr\tab $0A0D\par
+$084E\tab E000\tab cpx\tab #0\par
+$0850\tab D038\tab bne\tab $088A\par
+$0852\tab B8\tab clv\tab\par
+$0853\tab 500D\tab bvc\tab $0862\par
+$0855\tab 20700A\tab jsr\tab $0A70\par
+$0858\tab E000\tab cpx\tab #0\par
+$085A\tab D02E\tab bne\tab $088A\par
+$085C\tab 20EF0A\tab jsr\tab $0AEF\par
+$085F\tab B8\tab clv\tab\par
+$0860\tab 5000\tab bvc\tab $0862\par
+$0862\tab AD8E08\tab lda\tab $088E\par
+$0865\tab 8510\tab sta\tab r7L\par
+$0867\tab AD8D08\tab lda\tab $088D\par
+$086A\tab 8511\tab sta\tab r7H\par
+$086C\tab AD9008\tab lda\tab $0890\par
+$086F\tab 850D\tab sta\tab r5H\par
+$0871\tab AD8F08\tab lda\tab $088F\par
+$0874\tab 850C\tab sta\tab r5L\par
+$0876\tab AD9208\tab lda\tab $0892\par
+$0879\tab 8517\tab sta\tab r10H\par
+$087B\tab AD9108\tab lda\tab $0891\par
+$087E\tab 8516\tab sta\tab r10L\par
+$0880\tab B8\tab clv\tab\par
+$0881\tab 50AA\tab bvc\tab $082D\par
+$0883\tab A2FF\tab ldx\tab #255\par
+$0885\tab B8\tab clv\tab\par
+$0886\tab 5002\tab bvc\tab $088A\par
+$0888\tab A200\tab ldx\tab #0\par
+$088A\tab 60\tab rts\tab\par
+$088B\tab 00\tab brk\tab\par
+$088C\tab 00\tab brk\tab\par
+$088D\tab 00\tab brk\tab\par
+$088E\tab 00\tab brk\tab\par
+$088F\tab 00\tab brk\tab\par
+$0890\tab 00\tab brk\tab\par
+$0891\tab 00\tab brk\tab\par
+$0892\tab 00\tab brk\tab\par
+$0893\tab 8113\tab sta\tab (r8H,x)\par
+$0895\tab B3\tab ???\tab\par
+$0896\tab 08\tab php\tab\par
+$0897\tab 1004\tab bpl\tab $089D\par
+$0899\tab 04\tab ???\tab\par
+$089A\tab 0B\tab ???\tab\par
+$089B\tab 82\tab ???\tab\par
+$089C\tab 0A\tab asl\tab a\par
+$089D\tab EA\tab nop\tab\par
+$089E\tab 08\tab php\tab\par
+$089F\tab 0B\tab ???\tab\par
+$08A0\tab 82\tab ???\tab\par
+$08A1\tab 14\tab ???\tab\par
+$08A2\tab F508\tab sbc\tab r3L,x\par
+$08A4\tab 0511\tab ora\tab r7H\par
+$08A6\tab 190211\tab ora\tab $1102,y\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 14--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$08A9\tab 4C1211\tab jmp\tab $1112\par
+$08AC\tab 3B\tab ???\tab\par
+$08AD\tab AB\tab ???\tab\par
+$08AE\tab 0906\tab ora\tab #6\par
+$08B0\tab 112A\tab ora\tab (curIndexTable),y\par
+$08B2\tab 00\tab brk\tab\par
+$08B3\tab A900\tab lda\tab #0\par
+$08B5\tab 853B\tab sta\tab mouseXPos+1\par
+$08B7\tab A9E0\tab lda\tab #224\par
+$08B9\tab 853A\tab sta\tab mouseXPos\par
+$08BB\tab A941\tab lda\tab #65\par
+$08BD\tab 853C\tab sta\tab mouseYPos\par
+$08BF\tab 20C608\tab jsr\tab $08C6\par
+$08C2\tab 201509\tab jsr\tab $0915\par
+$08C5\tab 60\tab rts\tab\par
+$08C6\tab AE8984\tab ldx\tab curDrive\par
+$08C9\tab A000\tab ldy\tab #0\par
+$08CB\tab E009\tab cpx\tab #9\par
+$08CD\tab F006\tab beq\tab $08D5\par
+$08CF\tab B91E84\tab lda\tab DrACurDkNm,y\par
+$08D2\tab B8\tab clv\tab\par
+$08D3\tab 5003\tab bvc\tab $08D8\par
+$08D5\tab B93084\tab lda\tab DrBCurDkNm,y\par
+$08D8\tab C9A0\tab cmp\tab #160\par
+$08DA\tab F008\tab beq\tab $08E4\par
+$08DC\tab 99F508\tab sta\tab $08F5,y\par
+$08DF\tab C8\tab iny\tab\par
+$08E0\tab C011\tab cpy\tab #17\par
+$08E2\tab D0E7\tab bne\tab $08CB\par
+$08E4\tab A900\tab lda\tab #0\par
+$08E6\tab 99F508\tab sta\tab $08F5,y\par
+$08E9\tab 60\tab rts\tab\par
+$08EA\tab 18\tab clc\tab\par
+$08EB\tab 4F\tab ???\tab\par
+$08EC\tab 6E2064\tab ror\tab $6420\par
+$08EF\tab 6973\tab adc\tab #115\par
+$08F1\tab 6B\tab ???\tab\par
+$08F2\tab 3A\tab ???\tab\par
+$08F3\tab 1B\tab ???\tab\par
+$08F4\tab 00\tab brk\tab\par
+$08F5\tab 00\tab brk\tab\par
+$08F6\tab 00\tab brk\tab\par
+$08F7\tab 00\tab brk\tab\par
+$08F8\tab 00\tab brk\tab\par
+$08F9\tab 00\tab brk\tab\par
+$08FA\tab 00\tab brk\tab\par
+$08FB\tab 00\tab brk\tab\par
+$08FC\tab 00\tab brk\tab\par
+$08FD\tab 00\tab brk\tab\par
+$08FE\tab 00\tab brk\tab\par
+$08FF\tab 00\tab brk\tab\par
+$0900\tab 00\tab brk\tab\par
+$0901\tab 00\tab brk\tab\par
+$0902\tab 00\tab brk\tab\par
+$0903\tab 00\tab brk\tab\par
+$0904\tab 00\tab brk\tab\par
+$0905\tab 00\tab brk\tab\par
+$0906\tab 00\tab brk\tab\par
+$0907\tab 00\tab brk\tab\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 15--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$0908\tab 00\tab brk\tab\par
+$0909\tab 00\tab brk\tab\par
+$090A\tab 00\tab brk\tab\par
+$090B\tab 00\tab brk\tab\par
+$090C\tab 00\tab brk\tab\par
+$090D\tab 00\tab brk\tab\par
+$090E\tab 00\tab brk\tab\par
+$090F\tab 00\tab brk\tab\par
+$0910\tab 00\tab brk\tab\par
+$0911\tab 00\tab brk\tab\par
+$0912\tab 00\tab brk\tab\par
+$0913\tab 00\tab brk\tab\par
+$0914\tab 00\tab brk\tab\par
+$0915\tab AD8D84\tab lda\tab numDrives\par
+$0918\tab C902\tab cmp\tab #2\par
+$091A\tab F017\tab beq\tab $0933\par
+$091C\tab A900\tab lda\tab #0\par
+$091E\tab 8DAC09\tab sta\tab $09AC\par
+$0921\tab A900\tab lda\tab #0\par
+$0923\tab 8DAB09\tab sta\tab $09AB\par
+$0926\tab A901\tab lda\tab #1\par
+$0928\tab 8DAF09\tab sta\tab $09AF\par
+$092B\tab A901\tab lda\tab #1\par
+$092D\tab 8DB009\tab sta\tab $09B0\par
+$0930\tab B8\tab clv\tab\par
+$0931\tab 5022\tab bvc\tab $0955\par
+$0933\tab A909\tab lda\tab #9\par
+$0935\tab 8DAC09\tab sta\tab $09AC\par
+$0938\tab A9BB\tab lda\tab #187\par
+$093A\tab 8DAB09\tab sta\tab $09AB\par
+$093D\tab A906\tab lda\tab #6\par
+$093F\tab 8DAF09\tab sta\tab $09AF\par
+$0942\tab A910\tab lda\tab #16\par
+$0944\tab 8DB009\tab sta\tab $09B0\par
+$0947\tab AD8984\tab lda\tab curDrive\par
+$094A\tab 38\tab sec\tab\par
+$094B\tab E908\tab sbc\tab #8\par
+$094D\tab AA\tab tax\tab\par
+$094E\tab BD8E84\tab lda\tab driveType,x\par
+$0951\tab 2980\tab and\tab #128\par
+$0953\tab D00B\tab bne\tab $0960\par
+$0955\tab 206609\tab jsr\tab $0966\par
+$0958\tab B006\tab bcs\tab $0960\par
+$095A\tab A906\tab lda\tab #6\par
+$095C\tab 8DAF08\tab sta\tab $08AF\par
+$095F\tab 60\tab rts\tab\par
+$0960\tab A900\tab lda\tab #0\par
+$0962\tab 8DAF08\tab sta\tab $08AF\par
+$0965\tab 60\tab rts\tab\par
+$0966\tab AD8C08\tab lda\tab $088C\par
+$0969\tab C900\tab cmp\tab #0\par
+$096B\tab D005\tab bne\tab $0972\par
+$096D\tab AD8B08\tab lda\tab $088B\par
+$0970\tab C900\tab cmp\tab #0\par
+$0972\tab F033\tab beq\tab $09A7\par
+$0974\tab AD8C08\tab lda\tab $088C\par
+$0977\tab C9FF\tab cmp\tab #255\par
+$0979\tab D005\tab bne\tab $0980\par
+$097B\tab AD8B08\tab lda\tab $088B\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 16--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$097E\tab C9FF\tab cmp\tab #255\par
+$0980\tab F01D\tab beq\tab $099F\par
+$0982\tab A908\tab lda\tab #8\par
+$0984\tab 8503\tab sta\tab r0H\par
+$0986\tab A9F5\tab lda\tab #245\par
+$0988\tab 8502\tab sta\tab r0L\par
+$098A\tab AD8C08\tab lda\tab $088C\par
+$098D\tab 8505\tab sta\tab r1H\par
+$098F\tab AD8B08\tab lda\tab $088B\par
+$0992\tab 8504\tab sta\tab r1L\par
+$0994\tab A202\tab ldx\tab #2\par
+$0996\tab A004\tab ldy\tab #4\par
+$0998\tab 206BC2\tab jsr\tab CmpString\par
+$099B\tab F00C\tab beq\tab $09A9\par
+$099D\tab D008\tab bne\tab $09A7\par
+$099F\tab AD8984\tab lda\tab curDrive\par
+$09A2\tab CD8D08\tab cmp\tab $088D\par
+$09A5\tab F002\tab beq\tab $09A9\par
+$09A7\tab 18\tab clc\tab\par
+$09A8\tab 60\tab rts\tab\par
+$09A9\tab 38\tab sec\tab\par
+$09AA\tab 60\tab rts\tab\par
+$09AB\tab BB\tab ???\tab\par
+$09AC\tab 0900\tab ora\tab #0\par
+$09AE\tab 00\tab brk\tab\par
+$09AF\tab 0610\tab asl\tab r7L\par
+$09B1\tab B3\tab ???\tab\par
+$09B2\tab 09A9\tab ora\tab #169\par
+$09B4\tab 0B\tab ???\tab\par
+$09B5\tab 8D1D85\tab sta\tab sysDBData\par
+$09B8\tab 4CBFC2\tab jmp\tab RstrFrmDialo\par
+$09BB\tab 05FF\tab ora\tab $FF\par
+$09BD\tab 82\tab ???\tab\par
+$09BE\tab FE8004\tab inc\tab $0480,x\par
+$09C1\tab 00\tab brk\tab\par
+$09C2\tab 82\tab ???\tab\par
+$09C3\tab 03\tab ???\tab\par
+$09C4\tab 80\tab ???\tab\par
+$09C5\tab 04\tab ???\tab\par
+$09C6\tab 00\tab brk\tab\par
+$09C7\tab B7\tab ???\tab\par
+$09C8\tab 03\tab ???\tab\par
+$09C9\tab 80\tab ???\tab\par
+$09CA\tab F8\tab sed\tab\par
+$09CB\tab 00\tab brk\tab\par
+$09CC\tab C000\tab cpy\tab #0\par
+$09CE\tab 03\tab ???\tab\par
+$09CF\tab 80\tab ???\tab\par
+$09D0\tab CC0000\tab cpy\tab $0000\par
+$09D3\tab 00\tab brk\tab\par
+$09D4\tab 03\tab ???\tab\par
+$09D5\tab 80\tab ???\tab\par
+$09D6\tab C6FD\tab dec\tab a1L\par
+$09D8\tab D99E03\tab cmp\tab $039E,y\par
+$09DB\tab 80\tab ???\tab\par
+$09DC\tab C6E0\tab dec\tab $E0\par
+$09DE\tab D9B303\tab cmp\tab $03B3,y\par
+$09E1\tab 80\tab ???\tab\par
+$09E2\tab C6C0\tab dec\tab $C0\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 17--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$09E4\tab D9B303\tab cmp\tab $03B3,y\par
+$09E7\tab 80\tab ???\tab\par
+$09E8\tab C6C0\tab dec\tab $C0\par
+$09EA\tab CF\tab ???\tab\par
+$09EB\tab 3F\tab ???\tab\par
+$09EC\tab 03\tab ???\tab\par
+$09ED\tab 80\tab ???\tab\par
+$09EE\tab C6C0\tab dec\tab $C0\par
+$09F0\tab CF\tab ???\tab\par
+$09F1\tab 3003\tab bmi\tab $09F6\par
+$09F3\tab 80\tab ???\tab\par
+$09F4\tab CCC0C6\tab cpy\tab $C6C0\par
+$09F7\tab 33\tab ???\tab\par
+$09F8\tab 03\tab ???\tab\par
+$09F9\tab 80\tab ???\tab\par
+$09FA\tab F8\tab sed\tab\par
+$09FB\tab C0C6\tab cpy\tab #198\par
+$09FD\tab 1E03E2\tab asl\tab $E203,x\par
+$0A00\tab 02\tab ???\tab\par
+$0A01\tab 0180\tab ora\tab ($80,x)\par
+$0A03\tab 04\tab ???\tab\par
+$0A04\tab 00\tab brk\tab\par
+$0A05\tab 0103\tab ora\tab (r0H,x)\par
+$0A07\tab 06FF\tab asl\tab $FF\par
+$0A09\tab 017F\tab ora\tab (a9H,x)\par
+$0A0B\tab 05FF\tab ora\tab $FF\par
+$0A0D\tab A90A\tab lda\tab #10\par
+$0A0F\tab 8503\tab sta\tab r0H\par
+$0A11\tab A923\tab lda\tab #35\par
+$0A13\tab 8502\tab sta\tab r0L\par
+$0A15\tab 2056C2\tab jsr\tab DoDlgBox\par
+$0A18\tab 20A1C2\tab jsr\tab OpenDisk\par
+$0A1B\tab E000\tab cpx\tab #0\par
+$0A1D\tab F003\tab beq\tab $0A22\par
+$0A1F\tab 20910A\tab jsr\tab $0A91\par
+$0A22\tab 60\tab rts\tab\par
+$0A23\tab 8113\tab sta\tab (r8H,x)\par
+$0A25\tab 300A\tab bmi\tab $0A31\par
+$0A27\tab 0B\tab ???\tab\par
+$0A28\tab 1010\tab bpl\tab $0A3A\par
+$0A2A\tab 510A\tab eor\tab (r4L),y\par
+$0A2C\tab 0111\tab ora\tab (r7H,x)\par
+$0A2E\tab 48\tab pha\tab\par
+$0A2F\tab 00\tab brk\tab\par
+$0A30\tab A900\tab lda\tab #0\par
+$0A32\tab 853B\tab sta\tab mouseXPos+1\par
+$0A34\tab A9E0\tab lda\tab #224\par
+$0A36\tab 853A\tab sta\tab mouseXPos\par
+$0A38\tab A970\tab lda\tab #112\par
+$0A3A\tab 853C\tab sta\tab mouseYPos\par
+$0A3C\tab AD8984\tab lda\tab curDrive\par
+$0A3F\tab C908\tab cmp\tab #8\par
+$0A41\tab D008\tab bne\tab $0A4B\par
+$0A43\tab A941\tab lda\tab #65\par
+$0A45\tab 8D6D0A\tab sta\tab $0A6D\par
+$0A48\tab B8\tab clv\tab\par
+$0A49\tab 5005\tab bvc\tab $0A50\par
+$0A4B\tab A942\tab lda\tab #66\par
+$0A4D\tab 8D6D0A\tab sta\tab $0A6D\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 18--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$0A50\tab 60\tab rts\tab\par
+$0A51\tab 18\tab clc\tab\par
+$0A52\tab 496E\tab eor\tab #110\par
+$0A54\tab 73\tab ???\tab\par
+$0A55\tab 6572\tab adc\tab a3L\par
+$0A57\tab 74\tab ???\tab\par
+$0A58\tab 206E65\tab jsr\tab $656E\par
+$0A5B\tab 77\tab ???\tab\par
+$0A5C\tab 206469\tab jsr\tab $6964\par
+$0A5F\tab 73\tab ???\tab\par
+$0A60\tab 6B\tab ???\tab\par
+$0A61\tab 20696E\tab jsr\tab $6E69\par
+$0A64\tab 74\tab ???\tab\par
+$0A65\tab 6F\tab ???\tab\par
+$0A66\tab 206472\tab jsr\tab $7264\par
+$0A69\tab 6976\tab adc\tab #118\par
+$0A6B\tab 6520\tab adc\tab r15L\par
+$0A6D\tab 411B\tab eor\tab (r12H,x)\par
+$0A6F\tab 00\tab brk\tab\par
+$0A70\tab AD8984\tab lda\tab curDrive\par
+$0A73\tab C908\tab cmp\tab #8\par
+$0A75\tab F005\tab beq\tab $0A7C\par
+$0A77\tab A908\tab lda\tab #8\par
+$0A79\tab B8\tab clv\tab\par
+$0A7A\tab 5002\tab bvc\tab $0A7E\par
+$0A7C\tab A909\tab lda\tab #9\par
+$0A7E\tab 20B0C2\tab jsr\tab SetDevice\par
+$0A81\tab E000\tab cpx\tab #0\par
+$0A83\tab D008\tab bne\tab $0A8D\par
+$0A85\tab 20A1C2\tab jsr\tab OpenDisk\par
+$0A88\tab E000\tab cpx\tab #0\par
+$0A8A\tab D001\tab bne\tab $0A8D\par
+$0A8C\tab 60\tab rts\tab\par
+$0A8D\tab 20910A\tab jsr\tab $0A91\par
+$0A90\tab 60\tab rts\tab\par
+$0A91\tab E000\tab cpx\tab #0\par
+$0A93\tab F011\tab beq\tab $0AA6\par
+$0A95\tab 8EEE0A\tab stx\tab $0AEE\par
+$0A98\tab A90A\tab lda\tab #10\par
+$0A9A\tab 8503\tab sta\tab r0H\par
+$0A9C\tab A9A7\tab lda\tab #167\par
+$0A9E\tab 8502\tab sta\tab r0L\par
+$0AA0\tab 2056C2\tab jsr\tab DoDlgBox\par
+$0AA3\tab AEEE0A\tab ldx\tab $0AEE\par
+$0AA6\tab 60\tab rts\tab\par
+$0AA7\tab 8113\tab sta\tab (r8H,x)\par
+$0AA9\tab B40A\tab ldy\tab r4L,x\par
+$0AAB\tab 0B\tab ???\tab\par
+$0AAC\tab 1010\tab bpl\tab $0ABE\par
+$0AAE\tab DB\tab ???\tab\par
+$0AAF\tab 0A\tab asl\tab a\par
+$0AB0\tab 0111\tab ora\tab (r7H,x)\par
+$0AB2\tab 48\tab pha\tab\par
+$0AB3\tab 00\tab brk\tab\par
+$0AB4\tab A900\tab lda\tab #0\par
+$0AB6\tab 853B\tab sta\tab mouseXPos+1\par
+$0AB8\tab A9E0\tab lda\tab #224\par
+$0ABA\tab 853A\tab sta\tab mouseXPos\par
+$0ABC\tab A970\tab lda\tab #112\par
+\pard\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs18\par
+\par
+------------page 19--------------\par
+\par
+\par
+\pard\ri120\tx1160\tx2300\tx3160\tx8620\tx8620\tx8620\tx8620\tx8620\fs20 Address\tab OpCode\tab Mnemonic Code\par
+*****************************\par
+$0ABE\tab 853C\tab sta\tab mouseYPos\par
+$0AC0\tab ADEE0A\tab lda\tab $0AEE\par
+$0AC3\tab 8502\tab sta\tab r0L\par
+$0AC5\tab A900\tab lda\tab #0\par
+$0AC7\tab 8503\tab sta\tab r0H\par
+$0AC9\tab A900\tab lda\tab #0\par
+$0ACB\tab 8519\tab sta\tab r11H\par
+$0ACD\tab A9EF\tab lda\tab #239\par
+$0ACF\tab 8518\tab sta\tab r11L\par
+$0AD1\tab A930\tab lda\tab #48\par
+$0AD3\tab 8505\tab sta\tab r1H\par
+$0AD5\tab A9C0\tab lda\tab #192\par
+$0AD7\tab 2084C1\tab jsr\tab PutDecimal\par
+$0ADA\tab 60\tab rts\tab\par
+$0ADB\tab 18\tab clc\tab\par
+$0ADC\tab 44\tab ???\tab\par
+$0ADD\tab 6973\tab adc\tab #115\par
+$0ADF\tab 6B\tab ???\tab\par
+$0AE0\tab 204572\tab jsr\tab $7245\par
+$0AE3\tab 72\tab ???\tab\par
+$0AE4\tab 6F\tab ???\tab\par
+$0AE5\tab 72\tab ???\tab\par
+$0AE6\tab 20636F\tab jsr\tab $6F63\par
+$0AE9\tab 64\tab ???\tab\par
+$0AEA\tab 6520\tab adc\tab r15L\par
+$0AEC\tab 1B\tab ???\tab\par
+$0AED\tab 00\tab brk\tab\par
+$0AEE\tab 00\tab brk\tab\par
+$0AEF\tab 60\tab rts\tab\par
+\cf0\highlight0\fs18\par
+}
+ 
